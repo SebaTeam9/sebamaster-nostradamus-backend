@@ -1,6 +1,6 @@
-# sebamaster-movie-backend application
+# sebamaster-nostradamus-backend application
 
-sebamaster-movie-frontend application can be found [here](https://bitbucket.org/sebischair/sebamaster-movie-frontend)
+The foundation for this code can be found [here](https://bitbucket.org/sebischair/sebamaster-movie-frontend)
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ Just for the backend application:
 
 go to your project root folder via command line
 ```
-cd path/to/workspace/sebamaster-movie-frontend
+cd path/to/workspace/sebamaster-nostradamus-frontend
 ```
 
 **install node dependencies**
