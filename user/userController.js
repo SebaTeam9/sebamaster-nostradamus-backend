@@ -39,6 +39,10 @@ module.exports.signup = function(req, res){
         res.status(400).send('username required');
         return;
     }
+    if(!req.body.email){
+        res.status(400).send('email required');
+        return;
+    }
     if(!req.body.password){
         res.status(400).send('password required');
         return;
@@ -47,7 +51,10 @@ module.exports.signup = function(req, res){
     var user = new User();
 
     user.username = req.body.username;
+    user.email = req.body.email
     user.password = req.body.password;
+    user.regDate = req.body.regDate;
+    user.expDate = req.body.expDate;
 
     user.save(function(err) {
         if (err) {
