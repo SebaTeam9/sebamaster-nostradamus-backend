@@ -1,34 +1,18 @@
 /**
  * Created by Akash on 5/31/2016.
  */
-var Movie = require('./dashboardSchema');
+var Dashboard = require('./dashboardSchema');
 
 // Create endpoint /api/dashboard for GET
 exports.getEntries = function(req, res){
 
-   /* Dashboard.find({},function(err,dashboard){
+    Dashboard.find(function(err, dashboard) {
         if (err) {
             res.status(500).send(err);
-            console.log("ERRORRRR");
             return;
         }
-        console.log(err);
-        console.log("woohoo");
-        console.log(dashboard);
         res.json(dashboard);
-
-    });*/
-    Movie.find(function(err, movies) {
-        if (err) {
-            res.status(500).send(err);
-            return;
-        }
-        console.log("printing");
-        res.json(movies);
-
     });
-
-
 };
 
 /*exports.postMovie = function(req, res) {
