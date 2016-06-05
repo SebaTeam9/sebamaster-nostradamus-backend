@@ -14,3 +14,7 @@ exports.getHistory = function(req, res){
         res.json(history);
     });
 };
+
+exports.putUseCaseFeedback = function(req,res){
+
+}
