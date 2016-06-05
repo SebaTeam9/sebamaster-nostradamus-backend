@@ -56,6 +56,7 @@ module.exports.signup = function(req, res){
     user.regDate = req.body.regDate;
     user.expDate = req.body.expDate;
 
+
     user.save(function(err) {
         if (err) {
             res.status(500).send(err);
@@ -78,7 +79,9 @@ function createToken(user) {
     var tokenPayload = {
         user: {
             _id: user._id,
-            username: user.username
+            username: user.username,
+            regDate:user.regDate,
+            expDate: user.expDate
         }
 
     };
