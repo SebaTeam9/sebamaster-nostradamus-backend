@@ -49,9 +49,9 @@ var userRoutes = require("./user/userRoutes");
 var movieRoutes = require("./movie/movieRoutes");
 var patternRoutes = require("./pattern/patternRoutes");
 var questionRoutes = require("./question/questionRoutes");
-var dashboardRoutes = require("./dashboard/dashboardRoutes");
+var historyRoutes = require("./history/historyRoutes");
 
-app.use('/api', dashboardRoutes(passport));
+app.use('/api', historyRoutes(passport));
 app.use('/api', questionRoutes(passport));
 app.use('/api', movieRoutes(passport));
 app.use('/api', patternRoutes(passport));
