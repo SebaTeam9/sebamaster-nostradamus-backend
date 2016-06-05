@@ -10,6 +10,14 @@ var patternSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    patternTopLevelType: {
+        type: String,
+        required: true
+    },
+    patternParentType:{
+        type: String,
+        required: true
+    },
     patternContext: {
         type: String,
         required: true
@@ -23,7 +31,7 @@ var patternSchema = mongoose.Schema({
         required: true
     },
     patternRelated: {
-        type: String,
+        type: [String],
         required: true
 
     },

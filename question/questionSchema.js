@@ -1,17 +1,27 @@
 var mongoose = require('mongoose');
 var optionsSchema = mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     value: {
-        type: Number
+        type: String,
+        required: true
     }
 });
 var questionSchema = mongoose.Schema({
+    questionId: {
+        type: String,
+        required: true,
+        unique: true
+    },
     question: {
         type: String,
         required: true,
         unique: true
+    },
+    questionPhase: {
+        type: String
     },
     questionType: {
         type: String,
@@ -21,10 +31,7 @@ var questionSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    questionOptions: {
-        type: [optionsSchema],
-        required: true
-    }
+    questionOptions: [optionsSchema]
 });
 
 questionSchema.pre('save', function() {
