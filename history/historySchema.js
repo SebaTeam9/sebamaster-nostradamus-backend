@@ -5,9 +5,9 @@ var mongoose = require('mongoose');
 
 // Define the history schema
 var Historys = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    username:{
+        type:String,
+        required:true
     },
     userStoryName: {
         type: String,
@@ -26,15 +26,12 @@ var Historys = mongoose.Schema({
         required: true
     },
     resultRating: {
-        type: Number,
-        required: true
+        type: Number
     },
     userFeedback: {
-        type: String,
-        required: true
+        type: String
     }
 });
-
 
 // Export the Mongoose model
 module.exports = mongoose.model('Historys', Historys);

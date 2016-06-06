@@ -15,7 +15,7 @@ function historyRoutes(passport) {
     //middleware
     router.use(mw.unless({method: ['GET', 'OPTIONS']}));
 
-    router.route('/history')
+    router.route('/history/:username')
         .get(historyController.getHistory);
 
     return router;
