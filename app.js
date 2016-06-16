@@ -40,7 +40,6 @@ var jwtConfig = require('./passport/jwtConfig');
 app.use(passport.initialize());
 jwtConfig(passport);
 
-
 /**
  * routing
  */
@@ -50,7 +49,9 @@ var movieRoutes = require("./movie/movieRoutes");
 var patternRoutes = require("./pattern/patternRoutes");
 var questionRoutes = require("./question/questionRoutes");
 var historyRoutes = require("./history/historyRoutes");
+var antipatternRoutes = require("./antipattern/antipatternRoutes");
 
+app.use('/api', antipatternRoutes(passport));
 app.use('/api', historyRoutes(passport));
 app.use('/api', questionRoutes(passport));
 app.use('/api', movieRoutes(passport));
