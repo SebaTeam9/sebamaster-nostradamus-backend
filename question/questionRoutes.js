@@ -23,7 +23,13 @@ function questionRoutes(passport) {
     router.route("/questions")
         .get(questionController.getAllQuestions);
 
-    router.route("/questions/byType/pattern")
+    router.route("/questions/byPatternType/:patternType")
+        .get(questionController.getQuestionsByPatternType);
+
+    router.route("/questions/byPhase/:phaseId")
+        .get(questionController.getQuestionsByPhaseId);
+
+    router.route("/questions/byType/pattern/")
         .get(questionController.getAllPatternQuestions);
 
     router.route("/questions/byType/anti-pattern")

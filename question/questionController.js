@@ -23,6 +23,30 @@ exports.getQuestion = function(req, res){
 
 };
 
+exports.getQuestionsByPhaseId = function(req, res){
+    Question.find({ "questionPhase": req.params.phaseId }, function(err, questions) {
+        if (err) {
+            console.log(errorForStack);
+            res.status(500).send(err);
+            return;
+        }
+        res.json(questions);
+    });
+
+};
+
+exports.getQuestionsByPatternType = function(req, res){
+    Question.find({ "questionTopLevelType": req.params.patternType }, function(err, questions) {
+        if (err) {
+            console.log(errorForStack);
+            res.status(500).send(err);
+            return;
+        }
+        res.json(questions);
+    });
+
+};
+
 exports.putQuestion = function(req, res){
     console.log("You put some pattern");
 };
