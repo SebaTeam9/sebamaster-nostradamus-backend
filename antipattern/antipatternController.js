@@ -10,7 +10,6 @@ var Antipatterns = require('./antipatternSchema');
                 res.status(500).send(err);
                 return;
             }
-            console.log("inside");
             res.json(antipatterns);
         });
     };
