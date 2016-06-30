@@ -21,5 +21,8 @@ function antipatternRoutes(passport) {
     router.route('/antipatternnamelist')
         .get(antipatternController.getAntipatternNameList);
 
+    router.route("/antipatterns/byName/:ap_name")
+        .get(antipatternController.getAntiPatternByName);
+
     return router;
 }

@@ -29,6 +29,8 @@ function patternRoutes(passport) {
     router.route("/pattern/byName/:pattern_name")
         .get(patternController.getPatternByName);
 
+    router.route("/patternnamelist")
+        .get(patternController.getPatternNameList);
 
     return router;
 
