@@ -35,3 +35,13 @@ exports.getPatternByName = function(req, res){
         res.json(pattern);
     });
 };
+
+exports.getPatternNameList = function(req,res) {
+    Pattern.find({}, {'patternName': true},function(err, pattern) {
+        if (err) {
+            res.status(500).send(err);
+            return;
+        }
+        res.json(pattern);
+    });
+};

@@ -16,7 +16,8 @@ exports.getHistory = function(req, res){
     });
 };
 exports.postFeedback = function(req, res){
-    var history = new Historys(req.body);
+    console.log(req.body);
+    var history = new History(req.body);
 
     history.save(function(err, h) {
         if (err) {
