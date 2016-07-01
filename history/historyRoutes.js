@@ -21,5 +21,8 @@ function historyRoutes(passport) {
     router.route('/allHistory')
         .get(historyController.getAllHistory);
 
+    router.route('/validFeedbacks')
+        .get(historyController.getValidFeedbacks);
+
     return router;
 }
