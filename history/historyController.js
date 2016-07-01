@@ -6,13 +6,6 @@ var History = require('./historySchema');
 // Create endpoint /api/dashboard for GET
 exports.getHistory = function(req, res){
 
-    /*History.find(function(err, history) {
-        if (err) {
-            res.status(500).send(err);
-            return;
-        }
-        res.json(history);
-    });*/
     History.find({ "username": req.params.username }, function(err, history) {
         if (err) {
             console.log(errorForStack);
@@ -21,17 +14,7 @@ exports.getHistory = function(req, res){
         }
         res.json(history);
     });
-
-    /*History.findById(req.params.username, function(err, history) {
-        if (err) {
-            res.status(500).send(err)
-            return;
-        };
-        console.log(history);
-        res.json(history);
-    });*/
 };
-
 exports.getAllHistory = function(req, res){
     History.find({}, {'analysisResult': true,'resultRating': true},function(err, history) {
         if (err) {
@@ -40,8 +23,16 @@ exports.getAllHistory = function(req, res){
         }
         res.json(history);
     });
-}
+};
 
-exports.putUseCaseFeedback = function(req,res){
+exports.postFeedback = function(req, res){
+    var history = new History(req.body);
 
-}
+    history.save(function(err, h) {
+        if (err) {
+            res.status(500).send(err);
+            return;
+        }
+        res.json(h);
+    });
+};

@@ -63,5 +63,4 @@ exports.getLatestPattern = function(req,res){
         }
         res.json(patterns);
     });
-
 };
