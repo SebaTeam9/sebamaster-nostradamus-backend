@@ -6,7 +6,6 @@ exports.getAllPatterns = function(req, res){
             res.status(500).send(err);
             return;
         }
-        res.statusCode= 200;
         res.json(patterns);
     });
 };
@@ -16,7 +15,6 @@ exports.getPatternById = function(req, res){
         if (err) {
             console.log(errorForStack);
             res.status(500).send(err);
-            return;
         }
         res.json(pattern);
     });
@@ -28,20 +26,9 @@ exports.putPattern = function(req, res){
 };
 
 exports.getPatternByName = function(req, res){
-    Pattern.find({ "patternName": req.params.pattern_name}, function(err, pattern) {
+    Pattern.findOne({ "patternName": req.params.pattern_name }, function(err, pattern) {
         if (err) {
             console.log(errorForStack);
-            res.status(500).send(err);
-            return;
-        }
-        res.statusCode = 200;
-        res.json(pattern);
-    });
-};
-
-exports.getPatternNameList = function(req,res) {
-    Pattern.find({}, {'patternName': true},function(err, pattern) {
-        if (err) {
             res.status(500).send(err);
             return;
         }

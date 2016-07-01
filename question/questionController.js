@@ -6,7 +6,6 @@ exports.getAllQuestions = function(req, res){
             res.status(500).send(err);
             return;
         }
-        res.statusCode= 200;
         res.json(questions);
     });
 };
@@ -58,7 +57,6 @@ exports.getAllPatternQuestions = function(req, res){
             res.status(500).send(err);
             return;
         }
-        res.statusCode = 200;
         res.json(questions);
     });
 };
@@ -70,7 +68,9 @@ exports.getAllAntiPatternQuestions = function(req, res){
             res.status(500).send(err);
             return;
         }
-        res.statusCode = 200;
+        else if(questions === null){
+            res.status(204).end();
+        }
         res.json(questions);
     });
 };
