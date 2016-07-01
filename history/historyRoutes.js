@@ -13,14 +13,10 @@ function historyRoutes(passport) {
     mw.unless = unless;
 
     //middleware
-    router.use(mw.unless({method: ['GET', 'POST', 'OPTIONS']}));
+    router.use(mw.unless({method: ['GET', 'OPTIONS']}));
 
     router.route('/history/:username')
-        .get(historyController.getHistory)
-    ;
-
-    router.route('/history')
-        .post(historyController.postFeedback);
+        .get(historyController.getHistory);
 
     router.route('/allHistory')
         .get(historyController.getAllHistory);
