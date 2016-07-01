@@ -49,3 +49,19 @@ exports.getPatternNameList = function(req,res) {
         res.json(pattern);
     });
 };
+
+
+exports.getLatestPattern = function(req,res){
+    Pattern.
+    find().
+    sort({ patternCreation: -1 }).
+    limit(1).
+    exec(function(err, patterns){
+        if (err){
+            console.log(errorForStack);
+            res.status(500).send(err);
+        }
+        res.json(patterns);
+    });
+
+};

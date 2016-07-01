@@ -33,6 +33,9 @@ function patternRoutes(passport) {
     router.route("/patternnamelist")
         .get(patternController.getPatternNameList);
 
+    router.route("/latestPattern")
+        .get(patternController.getLatestPattern);
+
     return router;
 
 }

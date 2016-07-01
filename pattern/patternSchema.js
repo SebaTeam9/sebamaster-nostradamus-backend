@@ -37,6 +37,10 @@ var patternSchema = mongoose.Schema({
     },
     patternURL: {
         type: String
+    },
+    patternCreation: {
+        type: Date,
+        required: true
     }
 });
 
