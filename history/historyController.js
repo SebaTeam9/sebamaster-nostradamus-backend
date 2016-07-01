@@ -36,3 +36,16 @@ exports.postFeedback = function(req, res){
         res.json(h);
     });
 };
+
+exports.getValidFeedbacks = function(req,res){
+    History.
+    find({ "userFeedback": { $ne: null }}).
+    sort({ patternCreation: -1 }).
+    exec(function(err, patterns){
+        if (err){
+            console.log(errorForStack);
+            res.status(500).send(err);
+        }
+        res.json(patterns);
+    });
+};
