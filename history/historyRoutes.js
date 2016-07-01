@@ -19,7 +19,9 @@ function historyRoutes(passport) {
         .get(historyController.getHistory);
 
     router.route('/allHistory')
-        .get(historyController.getAllHistory);
+        .get(historyController.getAllHistory)
+        .post(historyController.postFeedback)
+    ;
 
     return router;
 }

@@ -22,7 +22,7 @@ var Historys = mongoose.Schema({
         required: true
     },
     analysisResult: {
-        type: String,
+        type: [String],
         required: true
     },
     resultRating: {

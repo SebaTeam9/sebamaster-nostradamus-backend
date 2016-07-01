@@ -11,7 +11,7 @@ exports.getAntipatterns = function(req, res) {
         }
         res.json(antipatterns);
     });
-}
+};
 
 exports.getAntipatternNameList = function(req,res) {
     Antipatterns.find({}, {'apname': true},function(err, antipatterns) {
@@ -21,11 +21,7 @@ exports.getAntipatternNameList = function(req,res) {
         }
         res.json(antipatterns);
     });
-}
-
-exports.putUseCaseFeedback = function(req,res){
-
-}
+};
 
 exports.getAntiPatternByName = function(req, res){
     Antipatterns.find({ "apname": req.params.ap_name }, function(err, antipatterns) {
