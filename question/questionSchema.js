@@ -20,7 +20,7 @@ var questionSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    questionPhase: {
+    questionTopLevelType: {
         type: String
     },
     questionType: {
