@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+
 var patternSchema = mongoose.Schema({
     patternId: {
         type: String,

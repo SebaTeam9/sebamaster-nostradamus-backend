@@ -21,6 +21,7 @@ exports.getHistory = function(req, res){
         }
         res.json(history);
     });
+
     /*History.findById(req.params.username, function(err, history) {
         if (err) {
             res.status(500).send(err)
@@ -30,6 +31,16 @@ exports.getHistory = function(req, res){
         res.json(history);
     });*/
 };
+
+exports.getAllHistory = function(req, res){
+    History.find({}, {'analysisResult': true,'resultRating': true},function(err, history) {
+        if (err) {
+            res.status(500).send(err);
+            return;
+        }
+        res.json(history);
+    });
+}
 
 exports.putUseCaseFeedback = function(req,res){
 

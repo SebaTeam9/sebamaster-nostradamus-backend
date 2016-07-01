@@ -1,6 +1,5 @@
 module.exports = movieRoutes;
 
-
 function movieRoutes(passport) {
 
     var movieController = require('./movieController');

@@ -18,5 +18,8 @@ function historyRoutes(passport) {
     router.route('/history/:username')
         .get(historyController.getHistory);
 
+    router.route('/allHistory')
+        .get(historyController.getAllHistory);
+
     return router;
 }
