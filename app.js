@@ -45,7 +45,7 @@ jwtConfig(passport);
  */
 
 var userRoutes = require("./user/userRoutes");
-//var movieRoutes = require("./movie/movieRoutes");
+var suggestRoutes = require("./suggest/suggestRoutes");
 var patternRoutes = require("./pattern/patternRoutes");
 var questionRoutes = require("./question/questionRoutes");
 var historyRoutes = require("./history/historyRoutes");
@@ -54,7 +54,7 @@ var antipatternRoutes = require("./antipattern/antipatternRoutes");
 app.use('/api', antipatternRoutes(passport));
 app.use('/api', historyRoutes(passport));
 app.use('/api', questionRoutes(passport));
-//app.use('/api', movieRoutes(passport));
+app.use('/api', suggestRoutes(passport));
 app.use('/api', patternRoutes(passport));
 app.use('/', userRoutes(passport));
 
