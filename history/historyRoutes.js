@@ -22,8 +22,13 @@ function historyRoutes(passport) {
         .get(historyController.getAllHistory)
         .post(historyController.postFeedback);
 
+    router.route('/submitFeedback')
+        .put(historyController.putFeedback);
+
     router.route('/validFeedbacks')
         .get(historyController.getValidFeedbacks);
+
+
 
     return router;
 }

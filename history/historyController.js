@@ -37,6 +37,28 @@ exports.postFeedback = function(req, res){
     });
 };
 
+exports.putFeedback = function(req, res){
+    var id = req.body._id;
+    History.find(id, function(err, p) {
+        if (!p)
+            console.log(new Error('Could not load Document'));
+        else {
+            var update = {
+                resultRating : req.body.resultRating,
+                userFeedback : req.body.userFeedback
+            };
+
+            var query = {'_id':id};
+            History.findOneAndUpdate(query, update, function(err) { // 5
+                if(err) {
+                    return res.send(500, err);
+                }
+
+            });
+        }
+    });
+};
+
 exports.getValidFeedbacks = function(req,res){
     History.
     find({ "userFeedback": { $ne: null }}).
