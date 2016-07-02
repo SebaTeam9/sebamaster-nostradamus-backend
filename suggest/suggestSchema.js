@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var suggestSchema = mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
     suggestedType: {
         type: String,
         required: true
@@ -15,6 +19,13 @@ var suggestSchema = mongoose.Schema({
     },
     suggestedURL: {
         type: String
+    },
+    suggestedDate: {
+        type: Date
+    },
+    readStatus: {
+        type: Boolean,
+        default: false
     }
 });
 

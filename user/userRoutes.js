@@ -10,6 +10,9 @@ function userRoutes(passport) {
     router.post('/signup', userController.signup);
     router.post('/unregister', passport.authenticate('jwt', {session: false}),userController.unregister)
 
+    router.route('/isAdmin/:username')
+        .get(userController.userRole);
+
     return router;
 
 }

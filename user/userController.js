@@ -34,6 +34,18 @@ module.exports.login = function(req, res){
 
 };
 
+exports.userRole = function(req, res){
+
+    User.findOne({ "username": req.params.username }, function(err, userdetails) {
+        if (err) {
+            console.log(errorForStack);
+            res.status(500).send(err);
+            return;
+        }
+        res.json(userdetails);
+    });
+};
+
 module.exports.signup = function(req, res){
     if(!req.body.username){
         res.status(400).send('username required');
@@ -81,7 +93,8 @@ function createToken(user) {
             _id: user._id,
             username: user.username,
             regDate:user.regDate,
-            expDate: user.expDate
+            expDate: user.expDate,
+            isAdmin: user.isAdmin
         }
 
     };

@@ -1,13 +1,15 @@
 var Suggest = require('./suggestSchema');
 
 exports.getAllSuggested = function(req, res){
-    Suggest.find(function(err, suggested) {
-        if (err) {
+    Suggest.
+    find().
+    sort({ suggestedDate: -1 }).
+    exec(function(err, suggestions){
+        if (err){
+            console.log(errorForStack);
             res.status(500).send(err);
-            return;
         }
-        res.statusCode= 200;
-        res.json(suggested);
+        res.json(suggestions);
     });
 };
 

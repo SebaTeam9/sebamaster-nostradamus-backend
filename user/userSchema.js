@@ -23,6 +23,12 @@ var userSchema = mongoose.Schema({
     expDate: {
         type: Date,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        //isadim
+        default: false
     }
 });
 
