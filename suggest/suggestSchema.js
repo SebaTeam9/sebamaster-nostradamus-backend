@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 var suggestSchema = mongoose.Schema({
     suggestedType: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     suggestName: {
         type: String,
@@ -19,6 +18,6 @@ var suggestSchema = mongoose.Schema({
     }
 });
 
-var Suggest = mongoose.model('Suggests', suggestSchema);
+var Suggest = mongoose.model('Suggest', suggestSchema);
 
 module.exports = Suggest;
