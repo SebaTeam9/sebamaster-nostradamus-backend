@@ -49,11 +49,11 @@ exports.putFeedback = function(req, res){
             };
 
             var query = {'_id':id};
-            History.findOneAndUpdate(query, update, function(err) { // 5
+            History.findOneAndUpdate(query, update, function(err,success) { // 5
                 if(err) {
                     return res.send(500, err);
                 }
-
+                res.json(success);
             });
         }
     });
