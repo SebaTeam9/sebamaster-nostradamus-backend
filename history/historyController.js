@@ -6,14 +6,16 @@ var History = require('./historySchema');
 // Create endpoint /api/dashboard for GET
 exports.getHistory = function(req, res){
 
-    History.find({ "username": req.params.username }, function(err, history) {
+    History.find({ "username": req.params.username })
+        .sort({analysisResult:-1})
+        .exec(function(err, history) {
         if (err) {
             console.log(errorForStack);
             res.status(500).send(err);
             return;
         }
         res.json(history);
-    });
+        });
 };
 exports.getAllHistory = function(req, res){
     History.find({}, {'analysisResult': true,'resultRating': true},function(err, history) {
