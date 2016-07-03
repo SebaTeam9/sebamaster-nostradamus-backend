@@ -7,7 +7,7 @@ var History = require('./historySchema');
 exports.getHistory = function(req, res){
 
     History.find({ "username": req.params.username })
-        .sort({analysisResult:-1})
+        .sort({analysisDate:-1})
         .exec(function(err, history) {
         if (err) {
             console.log(errorForStack);
@@ -65,6 +65,7 @@ exports.getValidFeedbacks = function(req,res){
     History.
     find({ "userFeedback": { $ne: null }}).
     sort({ patternCreation: -1 }).
+        limit(10).
     exec(function(err, patterns){
         if (err){
             console.log(errorForStack);

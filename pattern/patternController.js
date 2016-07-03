@@ -28,7 +28,7 @@ exports.putPattern = function(req, res){
 };
 
 exports.getPatternByName = function(req, res){
-    Pattern.find({ "patternName": req.params.pattern_name}, function(err, pattern) {
+    Pattern.findOne({ "patternName": req.params.pattern_name}, function(err, pattern) {
         if (err) {
             console.log(errorForStack);
             res.status(500).send(err);

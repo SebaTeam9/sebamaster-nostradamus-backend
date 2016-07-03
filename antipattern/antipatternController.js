@@ -24,7 +24,7 @@ exports.getAntipatternNameList = function(req,res) {
 };
 
 exports.getAntiPatternByName = function(req, res){
-    Antipatterns.find({ "apname": req.params.ap_name }, function(err, antipatterns) {
+    Antipatterns.findOne({ "apname": req.params.ap_name }, function(err, antipatterns) {
         if (err) {
             console.log(errorForStack);
             res.status(500).send(err);
